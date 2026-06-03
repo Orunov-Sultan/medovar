@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { products } from '../data/products';
-import { Category } from '../types/shared';
+import type { Category } from '../types/shared';
 import ProductGrid from '../components/products/ProductGrid';
 
 const categories: { id: Category | 'all'; label: string }[] = [
