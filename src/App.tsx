@@ -2,9 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
+import Shop from './pages/Shop';
 
 // Placeholder Pages
-const Shop = () => <div className="container-custom py-20 text-center"><h1 className="text-4xl">Магазин</h1></div>;
 const About = () => <div className="container-custom py-20 text-center"><h1 className="text-4xl">О нас</h1></div>;
 const Contact = () => <div className="container-custom py-20 text-center"><h1 className="text-4xl">Контакты</h1></div>;
 const Cart = () => <div className="container-custom py-20 text-center"><h1 className="text-4xl">Корзина</h1></div>;
