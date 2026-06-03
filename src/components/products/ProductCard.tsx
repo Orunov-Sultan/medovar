@@ -14,7 +14,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x400?text=' + encodeURIComponent(product.name);
+            const target = e.target as HTMLImageElement;
+            if (!target.dataset.tried) {
+              target.dataset.tried = "true";
+              target.src = "https://placehold.co/400x400/f6f2ef/1d150a?text=" + encodeURIComponent(product.name);
+            }
           }}
         />
         {!product.inStock && (
@@ -39,7 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             {product.name}
           </h3>
           <span className="text-sm text-gray-400 whitespace-nowrap ml-2">
-            {product.volume}
+            {product.weight}
           </span>
         </div>
         

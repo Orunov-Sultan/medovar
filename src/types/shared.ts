@@ -1,4 +1,4 @@
-export type Category = 'classic' | 'fruit' | 'spiced' | 'limited';
+export type Category = 'honey' | 'propolis' | 'perga' | 'wax' | 'gifts';
 
 export type Product = {
   id: string;
@@ -9,5 +9,5 @@ export type Product = {
   image: string;
   isPopular?: boolean;
   inStock: boolean;
-  volume: string;
+  weight: string;
 };

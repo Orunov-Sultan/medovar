@@ -4,11 +4,12 @@ import type { Category } from '../types/shared';
 import ProductGrid from '../components/products/ProductGrid';
 
 const categories: { id: Category | 'all'; label: string }[] = [
-  { id: 'all', label: 'Все сорта' },
-  { id: 'classic', label: 'Классика' },
-  { id: 'fruit', label: 'Ягодные' },
-  { id: 'spiced', label: 'Пряные' },
-  { id: 'limited', label: 'Лимитированные' },
+  { id: 'all', label: 'Все товары' },
+  { id: 'honey', label: 'Мёд' },
+  { id: 'propolis', label: 'Прополис' },
+  { id: 'perga', label: 'Перга и пыльца' },
+  { id: 'wax', label: 'Воск и свечи' },
+  { id: 'gifts', label: 'Подарки' },
 ];
 
 const Shop = () => {
@@ -27,9 +28,9 @@ const Shop = () => {
           <h6 className="text-brand-primary uppercase tracking-[0.3em] font-semibold mb-4">
             Каталог медоварни
           </h6>
-          <h1 className="text-4xl lg:text-6xl mb-6">Наши напитки</h1>
+          <h1 className="text-4xl lg:text-6xl mb-6">Продукция пасеки</h1>
           <p className="text-lg text-brand-text/80 leading-relaxed">
-            Мы создаем медовуху по старинным рецептам, используя только натуральный мед, 
+            Мы производим натуральный мёд по старинным рецептам, используя только натуральный мед, 
             родниковую воду и отборные ягоды и травы.
           </p>
         </div>
