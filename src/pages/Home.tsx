@@ -1,7 +1,10 @@
 import { ArrowRight, ShieldCheck, Sun, Truck, Sprout } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { products } from '../data/products';
+import ProductGrid from '../components/products/ProductGrid';
 
 const Home = () => {
+  const popularProducts = products.filter(p => p.isPopular).slice(0, 4);
   const advantages = [
     {
       icon: <ShieldCheck className="text-brand-primary" size={32} />,
@@ -103,6 +106,29 @@ const Home = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Popular Products Section */}
+      <section className="py-24">
+        <div className="container-custom">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div className="max-w-2xl">
+              <h6 className="text-brand-primary uppercase tracking-[0.3em] font-semibold mb-4">
+                Наш выбор
+              </h6>
+              <h2 className="text-4xl lg:text-5xl">Популярные сорта</h2>
+            </div>
+            <Link 
+              to="/shop" 
+              className="group flex items-center text-brand-dark font-bold uppercase tracking-widest text-sm hover:text-brand-primary transition-colors"
+            >
+              Смотреть всё
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+            </Link>
+          </div>
+
+          <ProductGrid products={popularProducts} />
         </div>
       </section>
 
