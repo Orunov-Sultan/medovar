@@ -5,10 +5,8 @@ import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
 import About from './pages/About';
+import Contact from './pages/Contact';
 import { CartProvider } from './context/CartContext';
-
-// Placeholder Pages
-const Contact = () => <div className="container-custom py-20 text-center"><h1 className="text-4xl">Контакты</h1></div>;
 
 function App() {
   return (
