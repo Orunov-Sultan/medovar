@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import toast from 'react-hot-toast';
-import { ArrowLeft, CheckCircle2, CreditCard, Truck, MapPin, User, Phone, Mail } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, CreditCard, Truck, MapPin, User } from 'lucide-react';
 
 const Checkout = () => {
   const { items, totalPrice, totalItems, clearCart } = useCart();

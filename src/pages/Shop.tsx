@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { products } from '../data/products';
 import type { Category } from '../types/shared';
 import ProductGrid from '../components/products/ProductGrid';

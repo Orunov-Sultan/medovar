@@ -1,4 +1,3 @@
-import React from 'react';
 import { ShieldCheck, Leaf, Heart, Award } from 'lucide-react';
 
 const About = () => {
@@ -16,7 +15,7 @@ const About = () => {
               <span className="text-brand-primary">самой природой</span>
             </h1>
             <p className="text-xl text-brand-text/80 leading-relaxed mb-10">
-              «Медовар» — это семейная пасека с многолетней историей. Мы верим,
+              «Медовар» — это семейная пасека with многолетней историей. Мы верим,
               что настоящий мед должен быть чистым, натуральным и приносить
               пользу каждой семье.
             </p>
@@ -51,7 +50,7 @@ const About = () => {
               <h2 className="text-3xl font-bold mb-6">Наша история</h2>
               <div className="space-y-6 text-brand-text/70 leading-relaxed">
                 <p>
-                  Всё началось более 15 лет назад с нескольких ульев на заднем
+                  Всё началось более 15 лет назад with нескольких ульев на заднем
                   дворе. Любовь к пчелам и уважение к их труду постепенно
                   переросли из простого увлечения в дело всей жизни.
                 </p>
