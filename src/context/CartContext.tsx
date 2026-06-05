@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import toast from 'react-hot-toast';
 import type { Product } from '../types/shared';
 
 export interface CartItem extends Product {
@@ -41,6 +42,14 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   }, [items]);
 
   const addToCart = (product: Product) => {
+    const isExisting = items.some((item) => item.id === product.id);
+    
+    if (isExisting) {
+      toast.success(`Ещё один ${product.name} добавлен в корзину`);
+    } else {
+      toast.success(`${product.name} добавлен в корзину`);
+    }
+
     setItems((prev) => {
       const existing = prev.find((item) => item.id === product.id);
       if (existing) {
@@ -53,6 +62,10 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const removeFromCart = (productId: string) => {
+    const itemToRemove = items.find(item => item.id === productId);
+    if (itemToRemove) {
+      toast.error(`${itemToRemove.name} удален из корзины`);
+    }
     setItems((prev) => prev.filter((item) => item.id !== productId));
   };
 

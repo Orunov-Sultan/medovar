@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import toast from 'react-hot-toast';
 import { ArrowLeft, CheckCircle2, CreditCard, Truck, MapPin, User, Phone, Mail } from 'lucide-react';
 
 const Checkout = () => {
@@ -23,6 +24,10 @@ const Checkout = () => {
     e.preventDefault();
     setIsSubmitted(true);
     clearCart();
+    toast.success('Заказ успешно оформлен! Спасибо за доверие.', {
+      duration: 5000,
+      icon: '🍯',
+    });
     window.scrollTo(0, 0);
   };
 
@@ -40,7 +45,7 @@ const Checkout = () => {
           </p>
           <button 
             onClick={() => navigate('/shop')}
-            className="bg-brand-dark text-white px-10 py-5 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-brand-primary hover:text-brand-dark transition-all duration-300 shadow-lg"
+            className="bg-brand-dark text-white px-10 py-5 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-brand-primary hover:text-brand-dark transition-all duration-300 shadow-lg cursor-pointer"
           >
             Вернуться в магазин
           </button>
@@ -58,7 +63,7 @@ const Checkout = () => {
             <div className="mb-10">
               <Link 
                 to="/cart" 
-                className="inline-flex items-center text-brand-text/60 hover:text-brand-dark transition-colors mb-6 group"
+                className="inline-flex items-center text-brand-text/60 hover:text-brand-dark transition-colors mb-6 group cursor-pointer"
               >
                 <ArrowLeft size={18} className="mr-2 group-hover:-translate-x-1 transition-transform" />
                 Вернуться в корзину
@@ -149,7 +154,7 @@ const Checkout = () => {
 
               <button 
                 type="submit" 
-                className="w-full bg-brand-dark text-white py-6 rounded-2xl font-bold uppercase tracking-widest text-sm hover:bg-brand-primary hover:text-brand-dark transition-all duration-300 shadow-xl shadow-brand-dark/10"
+                className="w-full bg-brand-dark text-white py-6 rounded-2xl font-bold uppercase tracking-widest text-sm hover:bg-brand-primary hover:text-brand-dark transition-all duration-300 shadow-xl shadow-brand-dark/10 cursor-pointer"
               >
                 Подтвердить заказ на {totalPrice} ₽
               </button>
