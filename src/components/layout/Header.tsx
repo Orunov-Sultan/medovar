@@ -1,9 +1,11 @@
 import { ShoppingCart, User, Search, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { totalItems } = useCart();
 
   const navLinks = [
     { name: 'Главная', path: '/' },
@@ -18,7 +20,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Mobile Menu Button */}
           <button 
-            className="lg:hidden text-brand-dark"
+            className="lg:hidden text-brand-dark cursor-pointer"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -48,15 +50,19 @@ const Header = () => {
 
           {/* User Actions */}
           <div className="flex items-center space-x-5 text-brand-dark">
-            <button className="hover:text-brand-primary transition-colors">
+            <button className="hover:text-brand-primary transition-colors cursor-pointer">
               <User size={20} />
             </button>
-            <button className="hover:text-brand-primary transition-colors">
+            <button className="hover:text-brand-primary transition-colors cursor-pointer">
               <Search size={20} />
             </button>
-            <Link to="/cart" className="flex items-center hover:text-brand-primary transition-colors">
+            <Link to="/cart" className="flex items-center hover:text-brand-primary transition-colors relative group">
               <ShoppingCart size={20} />
-              <span className="ml-1 text-xs font-semibold">(0)</span>
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-brand-primary text-brand-dark text-[10px] font-bold h-4 w-4 flex items-center justify-center rounded-full shadow-sm animate-in fade-in zoom-in duration-300">
+                  {totalItems}
+                </span>
+              )}
             </Link>
           </div>
         </div>

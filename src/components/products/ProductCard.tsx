@@ -1,11 +1,15 @@
-import React from 'react';
-import type { Product } from '../../types/shared';
+import React from "react";
+import type { Product } from "../../types/shared";
+import { useCart } from "../../context/CartContext";
+import { ShoppingCart } from "lucide-react";
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const { addToCart } = useCart();
+
   return (
     <div className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
       <div className="relative aspect-square overflow-hidden bg-gray-100">
@@ -17,7 +21,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             const target = e.target as HTMLImageElement;
             if (!target.dataset.tried) {
               target.dataset.tried = "true";
-              target.src = "https://placehold.co/400x400/f6f2ef/1d150a?text=" + encodeURIComponent(product.name);
+              target.src = `https://placehold.co/400x400/f6f2ef/1d150a?text=${encodeURIComponent(product.name)}`;
             }
           }}
         />
@@ -56,13 +60,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             {product.price} ₽
           </span>
           <button
+            onClick={() => addToCart(product)}
             disabled={!product.inStock}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center gap-2 cursor-pointer disabled:cursor-not-allowed ${
               product.inStock
-                ? 'bg-brand-dark text-white hover:bg-brand-primary hover:text-brand-dark'
-                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                ? "bg-brand-dark text-white hover:bg-brand-primary hover:text-brand-dark"
+                : "bg-gray-200 text-gray-400"
             }`}
           >
+            <ShoppingCart size={16} />
             В корзину
           </button>
         </div>

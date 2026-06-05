@@ -1,6 +1,6 @@
-import React from 'react';
-import type { Product } from '../../types/shared';
-import ProductCard from './ProductCard';
+import React from "react";
+import type { Product } from "../../types/shared";
+import ProductCard from "./ProductCard";
 
 interface ProductGridProps {
   products: Product[];
