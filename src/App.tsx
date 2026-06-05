@@ -10,10 +10,11 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import ProductDetail from './pages/ProductDetail';
 import Checkout from './pages/Checkout';
+import Shipping from './pages/Shipping';
+import FAQ from './pages/FAQ';
 import { CartProvider } from './context/CartContext';
 import { X } from 'lucide-react';
 
-// Component to limit toast count
 const ToastLimitManager = () => {
   const { toasts } = useToasterStore();
   const TOAST_LIMIT = 3;
@@ -84,6 +85,8 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/shipping" element={<Shipping />} />
+              <Route path="/faq" element={<FAQ />} />
             </Routes>
           </main>
           <Footer />
